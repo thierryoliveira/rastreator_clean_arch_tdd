@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
-import 'infrastructure/navigation/navigation.dart';
-import 'infrastructure/navigation/routes.dart';
+import 'package:rastreator/app/infrastructure/navigation/navigation.dart';
+import 'package:rastreator/app/infrastructure/navigation/routes.dart';
 
 void main() async {
   var initialRoute = await Routes.initialRoute;
