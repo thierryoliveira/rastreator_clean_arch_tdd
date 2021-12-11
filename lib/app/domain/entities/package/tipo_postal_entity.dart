@@ -1,26 +1,28 @@
 import 'package:equatable/equatable.dart';
 
-class TipoPostalEntity extends Equatable {
-  final String categoria;
-  final String descricao;
-  final String sigla;
+class PostalTypeEntity extends Equatable {
+  final String category;
+  final String description;
+  final String initials;
 
-  const TipoPostalEntity(
-      {required this.categoria, required this.descricao, required this.sigla});
+  const PostalTypeEntity(
+      {required this.category,
+      required this.description,
+      required this.initials});
 
-  factory TipoPostalEntity.fromJson(Map<String, dynamic> json) =>
-      TipoPostalEntity(
-        categoria: json['categoria'],
-        descricao: json['descricao'],
-        sigla: json['sigla'],
+  factory PostalTypeEntity.fromJson(Map<String, dynamic> json) =>
+      PostalTypeEntity(
+        category: json['categoria'],
+        description: json['descricao'],
+        initials: json['sigla'],
       );
 
   Map<String, dynamic> toJson() => {
-        'categoria': categoria,
-        'descricao': descricao,
-        'sigla': sigla,
+        'categoria': category,
+        'descricao': description,
+        'sigla': initials,
       };
 
   @override
-  List<Object> get props => [categoria, descricao, sigla];
+  List<Object> get props => [category, description, initials];
 }

@@ -1,66 +1,65 @@
 import 'package:equatable/equatable.dart';
-
 import 'destinatario_entity.dart';
 import 'unidade_entity.dart';
 import 'unidade_destino_entity.dart';
 
-class EventoEntity extends Equatable {
-  final String codigo;
-  final String descricao;
-  final DateTime? dtHrCriado;
-  final String tipo;
-  final UnidadeEntity unidade;
-  final UnidadeDestinoEntity? unidadeDestino;
-  final DestinatarioEntity? destinatario;
+class EventEntity extends Equatable {
+  final String id;
+  final String description;
+  final DateTime? dtHrCreated;
+  final String type;
+  final UnityEntity unity;
+  final DestinationUnityEntity? destinationUnity;
+  final RecipientEntity? recipient;
 
-  const EventoEntity({
-    required this.codigo,
-    required this.descricao,
-    this.dtHrCriado,
-    required this.tipo,
-    required this.unidade,
-    this.unidadeDestino,
-    this.destinatario,
+  const EventEntity({
+    required this.id,
+    required this.description,
+    this.dtHrCreated,
+    required this.type,
+    required this.unity,
+    this.destinationUnity,
+    this.recipient,
   });
 
-  factory EventoEntity.fromJson(Map<String, dynamic> json) => EventoEntity(
-        codigo: json['codigo'],
-        descricao: json['descricao'],
-        dtHrCriado: json['dtHrCriado'] == null
+  factory EventEntity.fromJson(Map<String, dynamic> json) => EventEntity(
+        id: json['codigo'],
+        description: json['descricao'],
+        dtHrCreated: json['dtHrCriado'] == null
             ? null
-            : DateTime.parse(json['dtHrCriado']),
-        tipo: json['tipo'],
-        unidade: UnidadeEntity.fromJson(json['unidade']),
-        unidadeDestino: json['unidadeDestino'] == null
+            : DateTime.parse(json['dtHrCreated']),
+        type: json['tipo'],
+        unity: UnityEntity.fromJson(json['unidade']),
+        destinationUnity: json['unidadeDestino'] == null
             ? null
-            : UnidadeDestinoEntity.fromJson(
+            : DestinationUnityEntity.fromJson(
                 json['unidadeDestino'] as Map<String, dynamic>),
-        destinatario: json['destinatario'] == null
+        recipient: json['destinatario'] == null
             ? null
-            : DestinatarioEntity.fromJson(
+            : RecipientEntity.fromJson(
                 json['destinatario'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {
-        'codigo': codigo,
-        'descricao': descricao,
-        'dtHrCriado': dtHrCriado?.toIso8601String(),
-        'tipo': tipo,
-        'unidade': unidade.toJson(),
-        'unidadeDestino': unidadeDestino?.toJson(),
-        'destinatario': destinatario?.toJson(),
+        'codigo': id,
+        'descricao': description,
+        'dtHrCriado': dtHrCreated?.toIso8601String(),
+        'tipo': type,
+        'unidade': unity.toJson(),
+        'unidadeDestino': destinationUnity?.toJson(),
+        'destinatario': recipient?.toJson(),
       };
 
   @override
   List<Object?> get props {
     return [
-      codigo,
-      descricao,
-      dtHrCriado,
-      tipo,
-      unidade,
-      unidadeDestino,
-      destinatario,
+      id,
+      description,
+      dtHrCreated,
+      type,
+      unity,
+      destinationUnity,
+      recipient,
     ];
   }
 }

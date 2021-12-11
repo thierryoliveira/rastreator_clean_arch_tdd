@@ -2,24 +2,24 @@ import 'package:equatable/equatable.dart';
 
 import 'endereco_entity.dart';
 
-class UnidadeEntity extends Equatable {
-  final EnderecoEntity? endereco;
-  final String tipo;
+class UnityEntity extends Equatable {
+  final AddressEntity? address;
+  final String type;
 
-  const UnidadeEntity({this.endereco, required this.tipo});
+  const UnityEntity({this.address, required this.type});
 
-  factory UnidadeEntity.fromJson(Map<String, dynamic> json) => UnidadeEntity(
-        endereco: json['endereco'] == null
+  factory UnityEntity.fromJson(Map<String, dynamic> json) => UnityEntity(
+        address: json['endereco'] == null
             ? null
-            : EnderecoEntity.fromJson(json['endereco']),
-        tipo: json['tipo'],
+            : AddressEntity.fromJson(json['endereco']),
+        type: json['tipo'],
       );
 
   Map<String, dynamic> toJson() => {
-        'endereco': endereco?.toJson(),
-        'tipo': tipo,
+        'endereco': address?.toJson(),
+        'tipo': type,
       };
 
   @override
-  List<Object?> get props => [endereco, tipo];
+  List<Object?> get props => [address, type];
 }

@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class DestinatarioEntity extends Equatable {
+class RecipientEntity extends Equatable {
   final String cep;
 
-  const DestinatarioEntity({required this.cep});
+  const RecipientEntity({required this.cep});
 
-  factory DestinatarioEntity.fromJson(Map<String, dynamic> json) =>
-      DestinatarioEntity(
+  factory RecipientEntity.fromJson(Map<String, dynamic> json) =>
+      RecipientEntity(
         cep: json['cep'],
       );
 

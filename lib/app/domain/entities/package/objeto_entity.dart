@@ -1,78 +1,76 @@
 import 'package:equatable/equatable.dart';
-
 import 'evento_entity.dart';
 import 'tipo_postal_entity.dart';
 
-class ObjetoEntity extends Equatable {
-  final String codObjeto;
-  final List<EventoEntity> eventos;
-  final String modalidade;
-  final TipoPostalEntity tipoPostal;
-  final bool habilitaAutoDeclaracao;
-  final bool permiteEncargoImportacao;
-  final bool habilitaPercorridaCarteiro;
-  final bool bloqueioObjeto;
-  final bool possuiLocker;
-  final bool habilitaLocker;
-  final bool habilitaCrowdshipping;
+class ObjectEntity extends Equatable {
+  final String objectId;
+  final List<EventEntity> events;
+  final String modality;
+  final PostalTypeEntity postalType;
+  final bool enableAutoDeclaration;
+  final bool allowImportCharge;
+  final bool enablePostmanTravel;
+  final bool blockObject;
+  final bool hasLocker;
+  final bool enableLocker;
+  final bool enableCrowdshipping;
 
-  const ObjetoEntity({
-    required this.codObjeto,
-    required this.eventos,
-    required this.modalidade,
-    required this.tipoPostal,
-    required this.habilitaAutoDeclaracao,
-    required this.permiteEncargoImportacao,
-    required this.habilitaPercorridaCarteiro,
-    required this.bloqueioObjeto,
-    required this.possuiLocker,
-    required this.habilitaLocker,
-    required this.habilitaCrowdshipping,
+  const ObjectEntity({
+    required this.objectId,
+    required this.events,
+    required this.modality,
+    required this.postalType,
+    required this.enableAutoDeclaration,
+    required this.allowImportCharge,
+    required this.enablePostmanTravel,
+    required this.blockObject,
+    required this.hasLocker,
+    required this.enableLocker,
+    required this.enableCrowdshipping,
   });
 
-  factory ObjetoEntity.fromJson(Map<String, dynamic> json) => ObjetoEntity(
-        codObjeto: json['codObjeto'],
-        eventos:
-            (json['eventos'])?.map((e) => EventoEntity.fromJson(e)).toList(),
-        modalidade: json['modalidade'],
-        tipoPostal: TipoPostalEntity.fromJson(json['tipoPostal']),
-        habilitaAutoDeclaracao: json['habilitaAutoDeclaracao'],
-        permiteEncargoImportacao: json['permiteEncargoImportacao'],
-        habilitaPercorridaCarteiro: json['habilitaPercorridaCarteiro'],
-        bloqueioObjeto: json['bloqueioObjeto'],
-        possuiLocker: json['possuiLocker'],
-        habilitaLocker: json['habilitaLocker'],
-        habilitaCrowdshipping: json['habilitaCrowdshipping'],
+  factory ObjectEntity.fromJson(Map<String, dynamic> json) => ObjectEntity(
+        objectId: json['codObjeto'],
+        events: (json['eventos'])?.map((e) => EventEntity.fromJson(e)).toList(),
+        modality: json['modalidade'],
+        postalType: PostalTypeEntity.fromJson(json['tipoPostal']),
+        enableAutoDeclaration: json['habilitaAutoDeclaracao'],
+        allowImportCharge: json['permiteEncargoImportacao'],
+        enablePostmanTravel: json['habilitaPercorridaCarteiro'],
+        blockObject: json['bloqueioObjeto'],
+        hasLocker: json['possuiLocker'],
+        enableLocker: json['habilitaLocker'],
+        enableCrowdshipping: json['habilitaCrowdshipping'],
       );
 
   Map<String, dynamic> toJson() => {
-        'codObjeto': codObjeto,
-        'eventos': eventos.map((e) => e.toJson()).toList(),
-        'modalidade': modalidade,
-        'tipoPostal': tipoPostal.toJson(),
-        'habilitaAutoDeclaracao': habilitaAutoDeclaracao,
-        'permiteEncargoImportacao': permiteEncargoImportacao,
-        'habilitaPercorridaCarteiro': habilitaPercorridaCarteiro,
-        'bloqueioObjeto': bloqueioObjeto,
-        'possuiLocker': possuiLocker,
-        'habilitaLocker': habilitaLocker,
-        'habilitaCrowdshipping': habilitaCrowdshipping,
+        'codObjeto': objectId,
+        'eventos': events.map((e) => e.toJson()).toList(),
+        'modalidade': modality,
+        'tipoPostal': postalType.toJson(),
+        'habilitaAutoDeclaracao': enableAutoDeclaration,
+        'permiteEncargoImportacao': allowImportCharge,
+        'habilitaPercorridaCarteiro': enablePostmanTravel,
+        'bloqueioObjeto': blockObject,
+        'possuiLocker': hasLocker,
+        'habilitaLocker': enableLocker,
+        'habilitaCrowdshipping': enableCrowdshipping,
       };
 
   @override
   List<Object> get props {
     return [
-      codObjeto,
-      eventos,
-      modalidade,
-      tipoPostal,
-      habilitaAutoDeclaracao,
-      permiteEncargoImportacao,
-      habilitaPercorridaCarteiro,
-      bloqueioObjeto,
-      possuiLocker,
-      habilitaLocker,
-      habilitaCrowdshipping,
+      objectId,
+      events,
+      modality,
+      postalType,
+      enableAutoDeclaration,
+      allowImportCharge,
+      enablePostmanTravel,
+      blockObject,
+      hasLocker,
+      enableLocker,
+      enableCrowdshipping,
     ];
   }
 }

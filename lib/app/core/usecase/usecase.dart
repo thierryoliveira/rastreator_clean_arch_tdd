@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:rastreator/app/core/usecase/errors/failures.dart';
 
-abstract class UseCase<Output, Input> {
+abstract class Usecase<Output, Input> {
   Future<Either<Failure, Output>> call(Input params);
 }
 

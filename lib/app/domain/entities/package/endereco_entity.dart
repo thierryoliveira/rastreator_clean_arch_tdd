@@ -1,21 +1,21 @@
 import 'package:equatable/equatable.dart';
 
-class EnderecoEntity extends Equatable {
-  final String cidade;
-  final String uf;
+class AddressEntity extends Equatable {
+  final String city;
+  final String fu;
 
-  const EnderecoEntity({required this.cidade, required this.uf});
+  const AddressEntity({required this.city, required this.fu});
 
-  factory EnderecoEntity.fromJson(Map<String, dynamic> json) => EnderecoEntity(
-        cidade: json['cidade'],
-        uf: json['uf'],
+  factory AddressEntity.fromJson(Map<String, dynamic> json) => AddressEntity(
+        city: json['cidade'],
+        fu: json['uf'],
       );
 
   Map<String, dynamic> toJson() => {
-        'cidade': cidade,
-        'uf': uf,
+        'cidade': city,
+        'uf': fu,
       };
 
   @override
-  List<Object> get props => [cidade, uf];
+  List<Object> get props => [city, fu];
 }

@@ -3,34 +3,34 @@ import 'package:equatable/equatable.dart';
 import 'objeto_entity.dart';
 
 class PackageEntity extends Equatable {
-  final List<ObjetoEntity> objetos;
-  final int quantidade;
-  final String resultado;
-  final String versao;
+  final List<ObjectEntity> objects;
+  final int amount;
+  final String result;
+  final String version;
 
   const PackageEntity({
-    required this.objetos,
-    required this.quantidade,
-    required this.resultado,
-    required this.versao,
+    required this.objects,
+    required this.amount,
+    required this.result,
+    required this.version,
   });
 
   factory PackageEntity.fromJson(Map<String, dynamic> json) => PackageEntity(
-        objetos: (json['objetos'] as List<dynamic>)
-            .map((e) => ObjetoEntity.fromJson(e))
+        objects: (json['objetos'] as List<dynamic>)
+            .map((e) => ObjectEntity.fromJson(e))
             .toList(),
-        quantidade: json['quantidade'],
-        resultado: json['resultado'],
-        versao: json['versao'],
+        amount: json['quantidade'],
+        result: json['resultado'],
+        version: json['versao'],
       );
 
   Map<String, dynamic> toJson() => {
-        'objetos': objetos.map((e) => e.toJson()).toList(),
-        'quantidade': quantidade,
-        'resultado': resultado,
-        'versao': versao,
+        'objetos': objects.map((e) => e.toJson()).toList(),
+        'quantidade': amount,
+        'resultado': result,
+        'versao': version,
       };
 
   @override
-  List<Object> get props => [objetos, quantidade, resultado, versao];
+  List<Object> get props => [objects, amount, result, version];
 }
