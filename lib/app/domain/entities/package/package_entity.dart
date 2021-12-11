@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'objeto_entity.dart';
+import 'object_entity.dart';
 
 class PackageEntity extends Equatable {
   final List<ObjectEntity> objects;

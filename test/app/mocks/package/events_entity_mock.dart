@@ -1,6 +1,6 @@
-import 'package:rastreator/app/domain/entities/package/evento_entity.dart';
+import 'package:rastreator/app/domain/entities/package/event_entity.dart';
 
-import 'unidade_destino_entity_mock.dart';
+import 'destination_unity_entity_mock.dart';
 import 'unidade_entity_mock.dart';
 
 final eventosEntityMock = <EventEntity>[

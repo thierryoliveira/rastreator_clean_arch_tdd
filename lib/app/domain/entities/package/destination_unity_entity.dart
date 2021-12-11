@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'endereco_entity.dart';
+import 'address_entity.dart';
 
 class DestinationUnityEntity extends Equatable {
   final String? codSro;

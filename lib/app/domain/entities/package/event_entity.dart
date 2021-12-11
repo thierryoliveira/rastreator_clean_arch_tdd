@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'destinatario_entity.dart';
-import 'unidade_entity.dart';
-import 'unidade_destino_entity.dart';
+import 'recipient_entity.dart';
+import 'unity_entity.dart';
+import 'destination_unity_entity.dart';
 
 class EventEntity extends Equatable {
   final String id;

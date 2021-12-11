@@ -1,7 +1,7 @@
-import 'package:rastreator/app/domain/entities/package/objeto_entity.dart';
+import 'package:rastreator/app/domain/entities/package/object_entity.dart';
 
-import 'eventos_entity_mock.dart';
-import 'tipo_postal_entity_mock.dart';
+import 'events_entity_mock.dart';
+import 'postal_type_entity_mock.dart';
 
 final objectEntityMock = ObjectEntity(
     objectId: 'LE424296059SE',

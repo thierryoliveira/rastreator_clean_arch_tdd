@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'evento_entity.dart';
-import 'tipo_postal_entity.dart';
+import 'event_entity.dart';
+import 'postal_type_entity.dart';
 
 class ObjectEntity extends Equatable {
   final String objectId;

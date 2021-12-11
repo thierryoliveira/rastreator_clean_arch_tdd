@@ -1,4 +1,4 @@
-import 'package:rastreator/app/domain/entities/package/tipo_postal_entity.dart';
+import 'package:rastreator/app/domain/entities/package/postal_type_entity.dart';
 
 final postalTypeEntityMock = PostalTypeEntity(
     category: 'PRIME IMPORTAÇÃO',

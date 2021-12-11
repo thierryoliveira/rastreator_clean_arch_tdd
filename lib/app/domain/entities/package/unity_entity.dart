@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'endereco_entity.dart';
+import 'address_entity.dart';
 
 class UnityEntity extends Equatable {
   final AddressEntity? address;

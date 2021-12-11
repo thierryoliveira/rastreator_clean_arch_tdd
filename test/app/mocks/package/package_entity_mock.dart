@@ -1,7 +1,7 @@
-import 'package:rastreator/app/domain/entities/package/objeto_entity.dart';
+import 'package:rastreator/app/domain/entities/package/object_entity.dart';
 import 'package:rastreator/app/domain/entities/package/package_entity.dart';
 
-import 'objeto_entity_mock.dart';
+import 'object_entity_mock.dart';
 
 final packageEntityMock = PackageEntity(
     objects: [objectEntityMock],
