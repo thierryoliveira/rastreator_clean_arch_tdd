@@ -22,34 +22,6 @@ class EventEntity extends Equatable {
     this.recipient,
   });
 
-  factory EventEntity.fromJson(Map<String, dynamic> json) => EventEntity(
-        id: json['codigo'],
-        description: json['descricao'],
-        dtHrCreated: json['dtHrCriado'] == null
-            ? null
-            : DateTime.parse(json['dtHrCreated']),
-        type: json['tipo'],
-        unity: UnityEntity.fromJson(json['unidade']),
-        destinationUnity: json['unidadeDestino'] == null
-            ? null
-            : DestinationUnityEntity.fromJson(
-                json['unidadeDestino'] as Map<String, dynamic>),
-        recipient: json['destinatario'] == null
-            ? null
-            : RecipientEntity.fromJson(
-                json['destinatario'] as Map<String, dynamic>),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'codigo': id,
-        'descricao': description,
-        'dtHrCriado': dtHrCreated?.toIso8601String(),
-        'tipo': type,
-        'unidade': unity.toJson(),
-        'unidadeDestino': destinationUnity?.toJson(),
-        'destinatario': recipient?.toJson(),
-      };
-
   @override
   List<Object?> get props {
     return [

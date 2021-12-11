@@ -29,34 +29,6 @@ class ObjectEntity extends Equatable {
     required this.enableCrowdshipping,
   });
 
-  factory ObjectEntity.fromJson(Map<String, dynamic> json) => ObjectEntity(
-        objectId: json['codObjeto'],
-        events: (json['eventos'])?.map((e) => EventEntity.fromJson(e)).toList(),
-        modality: json['modalidade'],
-        postalType: PostalTypeEntity.fromJson(json['tipoPostal']),
-        enableAutoDeclaration: json['habilitaAutoDeclaracao'],
-        allowImportCharge: json['permiteEncargoImportacao'],
-        enablePostmanTravel: json['habilitaPercorridaCarteiro'],
-        blockObject: json['bloqueioObjeto'],
-        hasLocker: json['possuiLocker'],
-        enableLocker: json['habilitaLocker'],
-        enableCrowdshipping: json['habilitaCrowdshipping'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'codObjeto': objectId,
-        'eventos': events.map((e) => e.toJson()).toList(),
-        'modalidade': modality,
-        'tipoPostal': postalType.toJson(),
-        'habilitaAutoDeclaracao': enableAutoDeclaration,
-        'permiteEncargoImportacao': allowImportCharge,
-        'habilitaPercorridaCarteiro': enablePostmanTravel,
-        'bloqueioObjeto': blockObject,
-        'possuiLocker': hasLocker,
-        'habilitaLocker': enableLocker,
-        'habilitaCrowdshipping': enableCrowdshipping,
-      };
-
   @override
   List<Object> get props {
     return [

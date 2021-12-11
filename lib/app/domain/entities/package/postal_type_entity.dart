@@ -10,19 +10,6 @@ class PostalTypeEntity extends Equatable {
       required this.description,
       required this.initials});
 
-  factory PostalTypeEntity.fromJson(Map<String, dynamic> json) =>
-      PostalTypeEntity(
-        category: json['categoria'],
-        description: json['descricao'],
-        initials: json['sigla'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'categoria': category,
-        'descricao': description,
-        'sigla': initials,
-      };
-
   @override
   List<Object> get props => [category, description, initials];
 }

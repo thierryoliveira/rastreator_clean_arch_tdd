@@ -15,22 +15,6 @@ class PackageEntity extends Equatable {
     required this.version,
   });
 
-  factory PackageEntity.fromJson(Map<String, dynamic> json) => PackageEntity(
-        objects: (json['objetos'] as List<dynamic>)
-            .map((e) => ObjectEntity.fromJson(e))
-            .toList(),
-        amount: json['quantidade'],
-        result: json['resultado'],
-        version: json['versao'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'objetos': objects.map((e) => e.toJson()).toList(),
-        'quantidade': amount,
-        'resultado': result,
-        'versao': version,
-      };
-
   @override
   List<Object> get props => [objects, amount, result, version];
 }
