@@ -4,8 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rastreator/app/data/models/package/unity_model.dart';
 import 'package:rastreator/app/domain/entities/package/unity_entity.dart';
 
-import '../../../mocks/package/unity_json_mock.dart';
-import '../../../mocks/package/unity_model_mock.dart';
+import '../../../../mocks/package/unity_json_mock.dart';
+import '../../../../mocks/package/unity_model_mock.dart';
 
 void main() {
   UnityModel model = unityModelMock;
