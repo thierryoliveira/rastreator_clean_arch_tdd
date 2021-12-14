@@ -1,4 +1,3 @@
-import 'package:rastreator/app/domain/entities/package/object_entity.dart';
 import 'package:rastreator/app/domain/entities/package/package_entity.dart';
 
 import 'object_entity_mock.dart';
