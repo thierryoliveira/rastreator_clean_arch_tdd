@@ -13,9 +13,9 @@ class DestinationUnityModel extends DestinationUnityEntity {
 
   factory DestinationUnityModel.fromJson(Map<String, dynamic> json) {
     return DestinationUnityModel(
-      codSro: json['codSro'] ?? '',
+      codSro: json['codSro'] ?? null,
       address: AddressModel.fromJson(json['endereco'] as Map<String, dynamic>),
-      name: json['nome'] ?? '',
+      name: json['nome'] ?? null,
       type: json['tipo'],
     );
   }
