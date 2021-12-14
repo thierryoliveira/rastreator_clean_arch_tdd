@@ -7,17 +7,16 @@ import 'controllers/home.controller.dart';
 class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('HomeScreen'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'HomeScreen is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
-    );
+    return Scaffold();
   }
+
+  // Widget _buildProductHeader() => Column(
+  //       children: [
+  //         Icon(Icons.arrow_back_ios),
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: [Text()],
+  //         )
+  //       ],
+  //     );
 }

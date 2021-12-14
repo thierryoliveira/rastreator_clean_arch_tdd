@@ -1,5 +1,5 @@
-import 'package:rastreator/app/core/usecase/errors/failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:rastreator/app/core/errors/failures.dart';
 import 'package:rastreator/app/core/usecase/usecase.dart';
 import 'package:rastreator/app/domain/entities/package/package_entity.dart';
 import 'package:rastreator/app/domain/repositories/ipackage_repository.dart';
