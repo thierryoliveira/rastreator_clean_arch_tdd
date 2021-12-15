@@ -1,1 +1,1 @@
-export 'package:rastreator/app/presentation/home/home.screen.dart';
+export 'package:rastreator/app/presentation/package/home.screen.dart';

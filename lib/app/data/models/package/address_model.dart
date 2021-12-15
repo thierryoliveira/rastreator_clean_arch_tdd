@@ -8,8 +8,8 @@ class AddressModel extends AddressEntity {
       : super(city: city, fu: fu);
 
   factory AddressModel.fromJson(Map<String, dynamic> json) => AddressModel(
-        city: json['cidade'],
-        fu: json['uf'],
+        city: json['cidade'] ?? '',
+        fu: json['uf'] ?? '',
       );
 
   Map<String, dynamic> toJson() => {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:rastreator/app/core/colors.dart';
 import 'package:rastreator/app/infrastructure/navigation/navigation.dart';
 import 'package:rastreator/app/infrastructure/navigation/routes.dart';
 
@@ -18,6 +19,9 @@ class Main extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: initialRoute,
       getPages: Nav.routes,
+      theme: ThemeData(
+          fontFamily: 'Quicksand',
+          textTheme: TextTheme(bodyText2: TextStyle(color: kGreyColor))),
     );
   }
 }

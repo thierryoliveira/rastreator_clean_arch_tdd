@@ -15,6 +15,7 @@ dependencies:
   dio: ^4.0.4
   get_storage: ^2.0.3
   mocktail: ^0.2.0
+  flutter_svg: ^1.0.0
 
 dev_dependencies: 
   flutter_lints: ^1.0.0
@@ -23,4 +24,14 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+  assets:
+    - assets/
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/quicksand/Quicksand-Regular.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/quicksand/Quicksand-SemiBold.ttf
+          weight: 600
 
