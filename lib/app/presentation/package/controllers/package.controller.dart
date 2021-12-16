@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:rastreator/app/core/errors/failure_handler.dart';
-import 'package:rastreator/app/domain/entities/package/package_entity.dart';
+import 'package:rastreator/app/domain/entities/package/event_entity.dart';
 import 'package:rastreator/app/domain/usecases/package/get_package_track_usecase.dart';
 
 class PackageController extends GetxController {
@@ -9,7 +9,9 @@ class PackageController extends GetxController {
 
   final txtSearch = TextEditingController();
 
-  PackageEntity? entity;
+  final _events = <EventEntity>[].obs;
+  get events => this._events;
+  set events(value) => this._events.value = value;
 
   @override
   void onInit() {
@@ -17,19 +19,22 @@ class PackageController extends GetxController {
   }
 
   @override
-  void onReady() {
+  void onReady() async {
     super.onReady();
+    this.events.value = await this.getTrackInfo('trackId');
   }
 
   @override
   void onClose() {}
 
-  Future<PackageEntity> getTrackInfo(String trackId) async {
+  Future<List<EventEntity>> getTrackInfo(String trackId) async {
     var result = await _usecase('LE424296059SE');
+    List<EventEntity> eventList = <EventEntity>[];
     result.fold((failure) => FailureHandler.handleFailureToSnackbar(failure),
         (response) {
-      entity = response;
+      eventList = response.objects[0].events;
+      events.value = response.objects[0].events;
     });
-    return entity!;
+    return eventList;
   }
 }
