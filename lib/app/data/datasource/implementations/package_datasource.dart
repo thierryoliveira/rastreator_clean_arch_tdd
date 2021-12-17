@@ -14,6 +14,7 @@ class PackageDatasource implements IPackageDatasource {
     final response = await client.get(PackageEndpoints.getTrackInfo(trackId));
     if (response.statusCode == 200) {
       var package = PackageModel.fromJson(response.data);
+
       return package;
     } else {
       throw ServerException();

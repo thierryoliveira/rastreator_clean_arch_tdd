@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
+import 'package:rastreator/app/presentation/global/widgets/show_success_snackbar.dart';
 import 'package:rastreator/app/presentation/package/controllers/package.controller.dart';
 import 'package:rastreator/app/presentation/package/widgets/event_card.dart';
 
 class PackageTrackInfoScreen extends GetWidget<PackageController> {
-  final String packageTitle;
+  final RxString packageTitle;
+  final RxString trackId;
 
-  PackageTrackInfoScreen({required this.packageTitle});
+  PackageTrackInfoScreen({required this.packageTitle, required this.trackId});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,9 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
                   padding: EdgeInsets.only(
                       left: Get.width * .01, top: Get.height * .01),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.clearEvents();
+                    },
                     icon: FaIcon(
                       FontAwesomeIcons.chevronLeft,
                       color: Colors.white,
@@ -35,13 +40,13 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  packageTitle,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold),
-                ),
+                Obx(() => Text(
+                      packageTitle.value,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold),
+                    )),
                 Padding(
                   padding: EdgeInsets.only(left: Get.width * .02),
                   child: FaIcon(
@@ -55,16 +60,23 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Text(controller.entity!.objects[0].objectId),
-                Text(
-                  'LE424296059SE',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: Get.width * .03),
-                  child: FaIcon(
-                    FontAwesomeIcons.copy,
-                    color: kOrangeColor,
-                    size: 18,
+                Obx(() => Text(
+                      trackId.value.toUpperCase(),
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    )),
+                GestureDetector(
+                  onTap: () {
+                    Clipboard.setData(ClipboardData(text: trackId.value));
+                    showSuccessSnackbar(
+                        'Sucesso', 'Código copiado para àrea de transferência');
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(left: Get.width * .03),
+                    child: FaIcon(
+                      FontAwesomeIcons.copy,
+                      color: kOrangeColor,
+                      size: 18,
+                    ),
                   ),
                 )
               ],
@@ -85,7 +97,7 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
                     child: GetX<PackageController>(
                       initState: (_) {
                         Get.find<PackageController>()
-                            .getTrackInfo('LE424296059SE');
+                            .getTrackInfo(trackId.value);
                       },
                       builder: (_) {
                         return ListView.builder(

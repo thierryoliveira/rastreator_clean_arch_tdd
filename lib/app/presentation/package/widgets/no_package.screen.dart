@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
 import 'package:rastreator/app/presentation/package/controllers/package.controller.dart';
@@ -16,11 +17,25 @@ class NoPackageScreen extends GetWidget<PackageController> {
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: Get.width * .05, vertical: Get.height * .05),
-            child: SearchTextfield(
-                textController: controller.txtSearch,
-                onSearch: () async {
-                  await controller.getTrackInfo(controller.txtSearch.text);
-                }),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Rastreator',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: Get.width * .03),
+                  child: FaIcon(
+                    FontAwesomeIcons.truckLoading,
+                    color: kOrangeColor,
+                  ),
+                )
+              ],
+            ),
           ),
           Expanded(
             child: Container(

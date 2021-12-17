@@ -8,9 +8,14 @@ import 'package:rastreator/app/presentation/global/widgets/custom_divider.dart';
 class EventCard extends StatelessWidget {
   final EventEntity event;
   final Color badgeColor;
+  late String destinationCity;
 
-  const EventCard({Key? key, required this.event, required this.badgeColor})
-      : super(key: key);
+  EventCard({Key? key, required this.event, required this.badgeColor})
+      : super(key: key) {
+    destinationCity = event.destinationUnity != null
+        ? '- ${event.destinationUnity!.address.city}'
+        : '';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +61,7 @@ class EventCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(top: size.height * .02),
                       child: Text(
-                        event.description,
+                        '${event.description} $destinationCity',
                         style: TextStyle(
                             fontSize: 16,
                             color: kDarkBlueColor,
