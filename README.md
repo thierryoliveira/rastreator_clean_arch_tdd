@@ -19,13 +19,13 @@ No changes are needed to run this app, just clone and build using a Flutter > 2 
     * FEATURE: Add project using Correios API to get package track events
     
 ## Utils
-[Getx Repository](https://github.com/jonataslaw/getx)
+[Getx Repository](https://github.com/jonataslaw/getx)  
 [Clean Architecture and TDD playlist (PT-BR) ](https://www.youtube.com/watch?v=odr59ZAx-IU&list=PLnFA4SZ9y0T5FA2dFdNh6NLD6Rm6GB6x7)
  
 ## Send me a message:
 
-Thierry Oliveira – [Linkedin](https://www.linkedin.com/in/thierry-oliveira/)
-Email: thierry.ifsp@gmail.com
+ Thierry Oliveira – [Linkedin](https://www.linkedin.com/in/thierry-oliveira/)  
+ Email: thierry.ifsp@gmail.com
 
 ## Contributing
 
