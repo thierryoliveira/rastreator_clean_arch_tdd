@@ -77,7 +77,6 @@ class HomeScreen extends GetView<PackageController> {
                         controller.trackId.value = controller.txtTrackId.text;
                         controller.packageName.value =
                             controller.txtPackageName.text;
-                        Get.back();
                       }
                     },
                     child: Text(

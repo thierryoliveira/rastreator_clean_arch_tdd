@@ -17,6 +17,8 @@ class PackageRepository implements IPackageRepository {
       return Right(result);
     } on ServerException {
       return Left(ServerFailure());
+    } on InvalidTrackIdException {
+      return Left(InvalidTrackIdFailure());
     }
   }
 }

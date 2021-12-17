@@ -13,9 +13,12 @@ class PackageDatasource implements IPackageDatasource {
   Future<PackageModel> getTrackInfo(String trackId) async {
     final response = await client.get(PackageEndpoints.getTrackInfo(trackId));
     if (response.statusCode == 200) {
-      var package = PackageModel.fromJson(response.data);
-
-      return package;
+      try {
+        var package = PackageModel.fromJson(response.data);
+        return package;
+      } catch (e) {
+        throw InvalidTrackIdException();
+      }
     } else {
       throw ServerException();
     }
