@@ -1,16 +1,29 @@
-# rastreator
+# Taskfy App
+> An easy app to track your delivery packages
+This project was developed just to show some skills and good habits with Flutter, feel free to use or change as you want.
 
-A new Flutter project.
+## Review
+To this project, I used Clean Architecture and some unit tests following TDD for each layer.
 
-## Getting Started
+## Important
 
-This project is a starting point for a Flutter application.
+No changes are needed to run this app, just clone and build using a Flutter > 2 with nullsafety.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Release History
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* 1.0.0
+    * FEATURE: Add project using Correios API to get package track events
+
+## Send me a message:
+
+Thierry Oliveira – [Linkedin](https://www.linkedin.com/in/thierry-oliveira/)
+Email: thierry.ifsp@gmail.com
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
