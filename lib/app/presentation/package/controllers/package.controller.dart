@@ -40,6 +40,7 @@ class PackageController extends GetxController {
         (response) {
       eventList = response.objects[0].events;
       events.value = response.objects[0].events;
+      Get.back();
     });
     update();
     return eventList;
