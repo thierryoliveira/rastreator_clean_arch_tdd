@@ -1,4 +1,4 @@
-# Taskfy App
+# Rastreator
 > An easy app to track your delivery packages
 This project was developed just to show some skills and good habits with Flutter, feel free to use or change as you want.
 
