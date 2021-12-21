@@ -62,6 +62,8 @@ class EventCard extends StatelessWidget {
                       padding: EdgeInsets.only(top: size.height * .02),
                       child: Text(
                         '${event.description} $destinationCity',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             fontSize: 16,
                             color: kDarkBlueColor,
