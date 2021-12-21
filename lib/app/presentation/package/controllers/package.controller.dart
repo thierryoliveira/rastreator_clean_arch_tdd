@@ -46,11 +46,12 @@ class PackageController extends GetxController {
     return eventList;
   }
 
-  clearEvents() {
+  Future<bool> clearEvents() async {
     events.value = <EventEntity>[];
     txtTrackId.clear();
     txtPackageName.clear();
     packageName.value = '';
     trackId.value = '';
+    return true;
   }
 }

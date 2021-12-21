@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rastreator/app/core/colors.dart';
 import 'package:rastreator/app/core/extensions/date_extensions.dart';
@@ -81,9 +82,16 @@ class EventCard extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            '${event.unity.address!.city} - ${event.unity.address!.fu}',
-                            style: TextStyle(fontSize: 16),
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Text(
+                                '${event.unity.address!.city} - ${event.unity.address!.fu}',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: size.width * .01),

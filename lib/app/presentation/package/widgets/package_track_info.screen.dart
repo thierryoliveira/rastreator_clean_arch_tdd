@@ -85,30 +85,33 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
               height: Get.height * .05,
             ),
             Expanded(
-                child: Container(
-                    padding: EdgeInsets.only(
-                        left: Get.width * .05, right: Get.width * .05),
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                        color: kLighterGreyColor,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(25),
-                            topRight: Radius.circular(25))),
-                    child: GetX<PackageController>(
-                      initState: (_) {
-                        Get.find<PackageController>()
-                            .getTrackInfo(trackId.value);
-                      },
-                      builder: (_) {
-                        return ListView.builder(
-                            itemCount: controller.events.length,
-                            itemBuilder: (context, index) => EventCard(
-                                  event: controller.events[index],
-                                  badgeColor:
-                                      index == 0 ? kGreenColor : kDarkBlueColor,
-                                ));
-                      },
-                    )))
+                child: RefreshIndicator(
+              onRefresh: () =>
+                  controller.getTrackInfo(controller.trackId.value),
+              child: Container(
+                  padding: EdgeInsets.only(
+                      left: Get.width * .05, right: Get.width * .05),
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                      color: kLighterGreyColor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25))),
+                  child: GetX<PackageController>(
+                    initState: (_) {
+                      Get.find<PackageController>().getTrackInfo(trackId.value);
+                    },
+                    builder: (_) {
+                      return ListView.builder(
+                          itemCount: controller.events.length,
+                          itemBuilder: (context, index) => EventCard(
+                                event: controller.events[index],
+                                badgeColor:
+                                    index == 0 ? kGreenColor : kDarkBlueColor,
+                              ));
+                    },
+                  )),
+            ))
           ],
         ),
       );

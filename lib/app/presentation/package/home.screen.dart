@@ -11,9 +11,11 @@ import 'controllers/package.controller.dart';
 class HomeScreen extends GetView<PackageController> {
   @override
   Widget build(BuildContext context) {
+    print('build');
     return Scaffold(
-      floatingActionButton: controller.events.length == 0
-          ? Padding(
+      floatingActionButton: Obx(() => Visibility(
+            visible: controller.events.length == 0,
+            child: Padding(
               padding: EdgeInsets.only(
                   bottom: Get.height * .03, right: Get.width * .03),
               child: FloatingActionButton(
@@ -25,8 +27,8 @@ class HomeScreen extends GetView<PackageController> {
                   Icons.add,
                 ),
               ),
-            )
-          : null,
+            ),
+          )),
       backgroundColor: kDarkBlueColor,
       body: SafeArea(
           child: Obx(() => Container(
@@ -48,6 +50,7 @@ class HomeScreen extends GetView<PackageController> {
     final _formKey = GlobalKey<FormState>();
 
     Get.defaultDialog(
+        onWillPop: () => controller.clearEvents(),
         contentPadding: EdgeInsets.fromLTRB(
             Get.width * .05, 0, Get.width * .05, Get.height * .02),
         backgroundColor: kOffwhiteColor,

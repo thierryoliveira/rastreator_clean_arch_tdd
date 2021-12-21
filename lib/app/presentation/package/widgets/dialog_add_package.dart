@@ -3,12 +3,14 @@ import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
 import 'package:rastreator/app/presentation/global/widgets/custom_textfield.dart';
 
-showDialogAddPackage({required Function onSubmit}) {
+showDialogAddPackage({required Function onSubmit, required Function onCancel}) {
   final _txtName = TextEditingController();
   final _txtTrackId = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   Get.defaultDialog(
+      onWillPop: () => onCancel(),
+      onCancel: () => onCancel(),
       contentPadding: EdgeInsets.fromLTRB(
           Get.width * .05, 0, Get.width * .05, Get.height * .02),
       backgroundColor: kOffwhiteColor,
