@@ -11,7 +11,9 @@ class NoPackageScreen extends GetWidget<PackageController> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    final size = MediaQuery.of(context).size;
+
+    return Container(
       child: Column(
         children: [
           Padding(
@@ -41,7 +43,7 @@ class NoPackageScreen extends GetWidget<PackageController> {
             child: Container(
               padding: EdgeInsets.only(
                   left: Get.width * .05, right: Get.width * .05),
-              width: Get.width,
+              width: size.width,
               decoration: BoxDecoration(
                   color: kLighterGreyColor,
                   borderRadius: BorderRadius.only(

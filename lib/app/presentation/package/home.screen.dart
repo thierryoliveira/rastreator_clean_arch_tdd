@@ -40,8 +40,8 @@ class HomeScreen extends GetView<PackageController> {
                             trackId: controller.trackId)
                       ],
                     )
-                  : Column(
-                      children: [NoPackageScreen()],
+                  : Container(
+                      child: NoPackageScreen(),
                     )))),
     );
   }
