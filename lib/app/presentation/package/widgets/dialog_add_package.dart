@@ -3,10 +3,14 @@ import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
 import 'package:rastreator/app/presentation/global/widgets/custom_textfield.dart';
 
+//TODO!: REFACTOR THIS DIALOG USING BLOC WITHOUT GETX
+
 showDialogAddPackage({required Function onSubmit, required Function onCancel}) {
   final _txtName = TextEditingController();
   final _txtTrackId = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  final size = MediaQueryData.fromWindow(WidgetsBinding.instance!.window);
 
   Get.defaultDialog(
       onWillPop: () => onCancel(),

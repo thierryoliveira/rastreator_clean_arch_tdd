@@ -16,14 +16,16 @@ class CustomTextField extends GetWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.only(
-              left: Get.width * 0.02,
-              bottom: Get.height * 0.01,
-              top: Get.height * 0.02),
+              left: size.width * 0.02,
+              bottom: size.height * 0.01,
+              top: size.height * 0.02),
           child: Text(
             label,
             style: TextStyle(

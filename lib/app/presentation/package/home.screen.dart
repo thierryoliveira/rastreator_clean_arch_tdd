@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
 import 'package:rastreator/app/presentation/global/widgets/custom_textfield.dart';
 import 'package:rastreator/app/presentation/package/widgets/no_package.screen.dart';
@@ -8,16 +7,16 @@ import 'package:rastreator/app/presentation/package/widgets/package_track_info.s
 
 import 'controllers/package.controller.dart';
 
-class HomeScreen extends GetView<PackageController> {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('build');
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       floatingActionButton: Obx(() => Visibility(
             visible: controller.events.length == 0,
             child: Padding(
               padding: EdgeInsets.only(
-                  bottom: Get.height * .03, right: Get.width * .03),
+                  bottom: size.height * .03, right: size.width * .03),
               child: FloatingActionButton(
                 backgroundColor: kGreenColor,
                 onPressed: () {
@@ -52,7 +51,7 @@ class HomeScreen extends GetView<PackageController> {
     Get.defaultDialog(
         onWillPop: () => controller.clearEvents(),
         contentPadding: EdgeInsets.fromLTRB(
-            Get.width * .05, 0, Get.width * .05, Get.height * .02),
+            size.width * .05, 0, size.width * .05, size.height * .02),
         backgroundColor: kOffwhiteColor,
         title: 'Rastreie um novo pacote',
         titleStyle: TextStyle(color: kGreyColor, fontWeight: FontWeight.w500),
@@ -71,8 +70,8 @@ class HomeScreen extends GetView<PackageController> {
                 isRequiredValidation: true,
               ),
               Container(
-                  margin: EdgeInsets.only(top: Get.height * .02),
-                  width: Get.width,
+                  margin: EdgeInsets.only(top: size.height * .02),
+                  width: size.width,
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {

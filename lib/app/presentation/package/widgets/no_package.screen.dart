@@ -18,7 +18,7 @@ class NoPackageScreen extends GetWidget<PackageController> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: Get.width * .05, vertical: Get.height * .05),
+                horizontal: size.width * .05, vertical: size.height * .05),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -30,7 +30,7 @@ class NoPackageScreen extends GetWidget<PackageController> {
                       fontWeight: FontWeight.w600),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: Get.width * .03),
+                  padding: EdgeInsets.only(left: size.width * .03),
                   child: FaIcon(
                     FontAwesomeIcons.truckLoading,
                     color: kOrangeColor,
@@ -42,7 +42,7 @@ class NoPackageScreen extends GetWidget<PackageController> {
           Expanded(
             child: Container(
               padding: EdgeInsets.only(
-                  left: Get.width * .05, right: Get.width * .05),
+                  left: size.width * .05, right: size.width * .05),
               width: size.width,
               decoration: BoxDecoration(
                   color: kLighterGreyColor,
@@ -55,12 +55,12 @@ class NoPackageScreen extends GetWidget<PackageController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: Get.width * .8,
+                      width: size.width * .8,
                       child: RichText(
                           text: TextSpan(
                               style: TextStyle(
                                 fontFamily: 'Quicksand',
-                                fontSize: Get.width * .07,
+                                fontSize: size.width * .07,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                                 shadows: <Shadow>[
@@ -86,8 +86,8 @@ class NoPackageScreen extends GetWidget<PackageController> {
                           ])),
                     ),
                     SizedBox(
-                        width: Get.width * .7,
-                        height: Get.height * .2,
+                        width: size.width * .7,
+                        height: size.height * .2,
                         child: SvgPicture.asset('assets/deliveries.svg'))
                   ],
                 ),

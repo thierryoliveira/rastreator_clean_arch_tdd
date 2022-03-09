@@ -15,104 +15,106 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildPackageHeader();
+    return _buildPackageHeader(context);
   }
 
-  _buildPackageHeader() => Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: Get.width * .01, top: Get.height * .01),
-                  child: IconButton(
-                    onPressed: () {
-                      controller.clearEvents();
-                    },
-                    icon: FaIcon(
-                      FontAwesomeIcons.chevronLeft,
-                      color: Colors.white,
-                    ),
-                  ),
-                )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Obx(() => Text(
-                      packageTitle.value,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold),
-                    )),
-                Padding(
-                  padding: EdgeInsets.only(left: Get.width * .02),
-                  child: FaIcon(
-                    FontAwesomeIcons.gift,
-                    color: kGreenColor,
-                  ),
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Text(controller.entity!.objects[0].objectId),
-                Obx(() => Text(
-                      trackId.value.toUpperCase(),
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    )),
-                GestureDetector(
-                  onTap: () {
-                    Clipboard.setData(ClipboardData(text: trackId.value));
-                    showSuccessSnackbar(
-                        'Sucesso', 'Código copiado para àrea de transferência');
+  _buildPackageHeader(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: size.width * .01, top: size.height * .01),
+                child: IconButton(
+                  onPressed: () {
+                    controller.clearEvents();
                   },
-                  child: Padding(
-                    padding: EdgeInsets.only(left: Get.width * .03),
-                    child: FaIcon(
-                      FontAwesomeIcons.copy,
-                      color: kOrangeColor,
-                      size: 18,
-                    ),
+                  icon: FaIcon(
+                    FontAwesomeIcons.chevronLeft,
+                    color: Colors.white,
                   ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: Get.height * .05,
-            ),
-            Expanded(
-                child: RefreshIndicator(
-              onRefresh: () =>
-                  controller.getTrackInfo(controller.trackId.value),
-              child: Container(
-                  padding: EdgeInsets.only(
-                      left: Get.width * .05, right: Get.width * .05),
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                      color: kLighterGreyColor,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25))),
-                  child: GetX<PackageController>(
-                    initState: (_) {
-                      Get.find<PackageController>().getTrackInfo(trackId.value);
-                    },
-                    builder: (_) {
-                      return ListView.builder(
-                          itemCount: controller.events.length,
-                          itemBuilder: (context, index) => EventCard(
-                                event: controller.events[index],
-                                badgeColor:
-                                    index == 0 ? kGreenColor : kDarkBlueColor,
-                              ));
-                    },
+                ),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Obx(() => Text(
+                    packageTitle.value,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
                   )),
-            ))
-          ],
-        ),
-      );
+              Padding(
+                padding: EdgeInsets.only(left: size.width * .02),
+                child: FaIcon(
+                  FontAwesomeIcons.gift,
+                  color: kGreenColor,
+                ),
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Text(controller.entity!.objects[0].objectId),
+              Obx(() => Text(
+                    trackId.value.toUpperCase(),
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  )),
+              GestureDetector(
+                onTap: () {
+                  Clipboard.setData(ClipboardData(text: trackId.value));
+                  showSuccessSnackbar(
+                      'Sucesso', 'Código copiado para àrea de transferência');
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(left: size.width * .03),
+                  child: FaIcon(
+                    FontAwesomeIcons.copy,
+                    color: kOrangeColor,
+                    size: 18,
+                  ),
+                ),
+              )
+            ],
+          ),
+          SizedBox(
+            height: size.height * .05,
+          ),
+          Expanded(
+              child: RefreshIndicator(
+            onRefresh: () => controller.getTrackInfo(controller.trackId.value),
+            child: Container(
+                padding: EdgeInsets.only(
+                    left: size.width * .05, right: size.width * .05),
+                width: size.width,
+                decoration: BoxDecoration(
+                    color: kLighterGreyColor,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25))),
+                child: GetX<PackageController>(
+                  initState: (_) {
+                    Get.find<PackageController>().getTrackInfo(trackId.value);
+                  },
+                  builder: (_) {
+                    return ListView.builder(
+                        itemCount: controller.events.length,
+                        itemBuilder: (context, index) => EventCard(
+                              event: controller.events[index],
+                              badgeColor:
+                                  index == 0 ? kGreenColor : kDarkBlueColor,
+                            ));
+                  },
+                )),
+          ))
+        ],
+      ),
+    );
+  }
 }
