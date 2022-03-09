@@ -1,0 +1,39 @@
+name: rastreator
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  dio: ^4.0.4
+  equatable: ^2.0.3
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.0.1
+  flutter_svg: ^1.0.0
+  font_awesome_flutter: ^9.2.0
+  get: 4.5.1
+  get_storage: ^2.0.3
+  intl: ^0.17.0
+  mocktail: ^0.2.0
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/quicksand/Quicksand-Regular.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/quicksand/Quicksand-SemiBold.ttf
+          weight: 600
