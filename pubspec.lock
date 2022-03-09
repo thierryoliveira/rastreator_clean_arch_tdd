@@ -194,12 +194,12 @@ packages:
     source: hosted
     version: "2.1.2"
   get:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: get
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.1"
+    version: "4.6.1"
   get_storage:
     dependency: "direct main"
     description:
