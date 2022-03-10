@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
-import 'package:rastreator/app/presentation/package/controllers/package.controller.dart';
-import 'package:rastreator/app/presentation/package/widgets/search_textfield.dart';
 
-class NoPackageScreen extends GetWidget<PackageController> {
+class NoPackageScreen extends StatelessWidget {
   const NoPackageScreen({Key? key}) : super(key: key);
 
   @override
