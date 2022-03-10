@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
-import 'package:rastreator/app/infrastructure/navigation/navigation.dart';
-import 'package:rastreator/app/infrastructure/navigation/routes.dart';
+import 'package:rastreator/app/presentation/screens.dart';
+import './app/core/dependency_injection/injection_container.dart' as di;
 
 void main() async {
-  var initialRoute = await Routes.initialRoute;
-  runApp(Main(initialRoute));
+  await di.init();
+  runApp(Main());
 }
 
 class Main extends StatelessWidget {
-  final String initialRoute;
-  Main(this.initialRoute);
-
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      initialRoute: initialRoute,
-      getPages: Nav.routes,
+    return MaterialApp(
       theme: ThemeData(
           fontFamily: 'Quicksand',
           textTheme: TextTheme(bodyText2: TextStyle(color: kGreyColor))),
+      home: HomeScreen(),
     );
   }
 }
