@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
+import 'package:rastreator/app/domain/entities/package/package_entity.dart';
 import 'package:rastreator/app/presentation/global/widgets/show_success_snackbar.dart';
-import 'package:rastreator/app/presentation/package/controllers/package.controller.dart';
+import 'package:rastreator/app/presentation/package/bloc/package_bloc.dart';
+
 import 'package:rastreator/app/presentation/package/widgets/event_card.dart';
 
-class PackageTrackInfoScreen extends GetWidget<PackageController> {
-  final RxString packageTitle;
-  final RxString trackId;
+class PackageTrackInfoScreen extends StatelessWidget {
+  final String packageTitle;
+  final String trackId;
+  final PackageEntity package;
 
-  PackageTrackInfoScreen({required this.packageTitle, required this.trackId});
+  PackageTrackInfoScreen(
+      {required this.packageTitle,
+      required this.trackId,
+      required this.package});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +37,8 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
                     left: size.width * .01, top: size.height * .01),
                 child: IconButton(
                   onPressed: () {
-                    controller.clearEvents();
+                    final bloc =
+                        context.read<PackageBloc>().add(ClearTrackInfoEvent());
                   },
                   icon: FaIcon(
                     FontAwesomeIcons.chevronLeft,
@@ -42,13 +49,13 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Obx(() => Text(
-                    packageTitle.value,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold),
-                  )),
+              Text(
+                packageTitle,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold),
+              ),
               Padding(
                 padding: EdgeInsets.only(left: size.width * .02),
                 child: FaIcon(
@@ -62,13 +69,13 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Text(controller.entity!.objects[0].objectId),
-              Obx(() => Text(
-                    trackId.value.toUpperCase(),
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  )),
+              Text(
+                trackId.toUpperCase(),
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
               GestureDetector(
                 onTap: () {
-                  Clipboard.setData(ClipboardData(text: trackId.value));
+                  Clipboard.setData(ClipboardData(text: trackId));
                   showSuccessSnackbar(
                       'Sucesso', 'Código copiado para àrea de transferência');
                 },
@@ -88,7 +95,8 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
           ),
           Expanded(
               child: RefreshIndicator(
-            onRefresh: () => controller.getTrackInfo(controller.trackId.value),
+            onRefresh: () async =>
+                context.read<PackageBloc>().add(GetTrackInfoEvent(trackId)),
             child: Container(
                 padding: EdgeInsets.only(
                     left: size.width * .05, right: size.width * .05),
@@ -98,20 +106,12 @@ class PackageTrackInfoScreen extends GetWidget<PackageController> {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25))),
-                child: GetX<PackageController>(
-                  initState: (_) {
-                    Get.find<PackageController>().getTrackInfo(trackId.value);
-                  },
-                  builder: (_) {
-                    return ListView.builder(
-                        itemCount: controller.events.length,
-                        itemBuilder: (context, index) => EventCard(
-                              event: controller.events[index],
-                              badgeColor:
-                                  index == 0 ? kGreenColor : kDarkBlueColor,
-                            ));
-                  },
-                )),
+                child: ListView.builder(
+                    itemCount: package.objects[0].events.length,
+                    itemBuilder: (context, index) => EventCard(
+                          event: package.objects[0].events[index],
+                          badgeColor: index == 0 ? kGreenColor : kDarkBlueColor,
+                        ))),
           ))
         ],
       ),
