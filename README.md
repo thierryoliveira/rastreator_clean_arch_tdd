@@ -9,8 +9,10 @@
 > The first version was made using GetX, so I decided to know how hard is decouple this lib from an app, and using a nice pattern like clean architecture and SOLID concepts like dependency inversion, it was **really easy**!
 
 
-## Review
-To this project, I used Clean Architecture and some unit tests following TDD for each layer.
+## Screenshots
+[HomePage](/screenshots/home.png)  
+[Add new package](/screenshots/dialog_add_package.png)  
+[Track info](/screenshots/track_info.png)  
 
 ## important worked topics
 
