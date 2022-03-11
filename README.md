@@ -3,10 +3,10 @@
 ![Badge](https://img.shields.io/static/v1?label=flutter&message=Bloc&color=blue&style=for-the-badge&logo=FLUTTER)
 
 # Rastreator
-> An easy app to track your delivery packages
-This project was developed just to show some skills and good habits with Flutter, feel free to use or change as you want.
+> An easy app to track your delivery packages.
+>This project was developed just to show some skills and good habits with Flutter, feel free to use or change as you want.
 > On this repository, I pushed the same app in two versions, using different state managers, being them GetX and Bloc.
-> The first version was made using GetX, so I decided to know how hard is decouple this lib from an app, and using a nice pattern like clean architecture some SOLID concepts like dependency inversion, it was **really easy**!
+> The first version was made using GetX, so I decided to know how hard is decouple this lib from an app, and using a nice pattern like clean architecture and SOLID concepts like dependency inversion, it was **really easy**!
 
 
 ## Review
