@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
 import 'package:rastreator/app/core/shared/shared_methods.dart';
 
-class CustomTextField extends GetWidget {
+class CustomTextField extends StatelessWidget {
   final String label;
   final TextEditingController textController;
   final bool isRequiredValidation;
