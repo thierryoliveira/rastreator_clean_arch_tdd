@@ -1,5 +1,6 @@
 ![Badge](https://img.shields.io/static/v1?label=flutter&message=nullsafety&color=blue&style=for-the-badge&logo=FLUTTER)
 ![Badge](https://img.shields.io/static/v1?label=flutter&message=GetX&color=blue&style=for-the-badge&logo=FLUTTER)
+![Badge](https://img.shields.io/static/v1?label=flutter&message=Bloc&color=blue&style=for-the-badge&logo=FLUTTER)
 
 # Rastreator
 > An easy app to track your delivery packages
