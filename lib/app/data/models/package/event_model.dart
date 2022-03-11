@@ -42,7 +42,7 @@ class EventModel extends EventEntity {
             ? null
             : DestinationUnityModel.fromJson(
                 json['unidadeDestino'] as Map<String, dynamic>),
-        recipient: json['destinatario'] == null
+        recipient: json['destinatario'] == null || json['cep'] == null
             ? null
             : RecipientModel.fromJson(
                 json['destinatario'] as Map<String, dynamic>),
