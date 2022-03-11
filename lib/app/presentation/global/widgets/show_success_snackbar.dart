@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:rastreator/app/core/colors.dart';
+import 'package:rastreator/app/core/globals.dart';
 
-showSuccessSnackbar(String title, String description) => Get.snackbar(
-      title,
-      description,
-      snackPosition: SnackPosition.BOTTOM,
-      colorText: Colors.white,
-      backgroundColor: kGreenColor,
-    );
+showSuccessSnackbar(String text) {
+  final SnackBar _snackBar = SnackBar(
+    content: Text(text),
+    backgroundColor: kGreenColor,
+  );
+  snackbarKey.currentState?.showSnackBar(_snackBar);
+}
