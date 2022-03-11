@@ -9,7 +9,8 @@ abstract class PackageEvent extends Equatable {
 
 class GetTrackInfoEvent extends PackageEvent {
   final String trackId;
-  const GetTrackInfoEvent(this.trackId);
+  final String packageTitle;
+  const GetTrackInfoEvent(this.trackId, this.packageTitle);
 }
 
 class ClearTrackInfoEvent extends PackageEvent {}
