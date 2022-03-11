@@ -3,24 +3,25 @@
 ![Badge](https://img.shields.io/static/v1?label=flutter&message=Bloc&color=blue&style=for-the-badge&logo=FLUTTER)
 
 # Rastreator
-> An easy app to track your delivery packages.
->This project was developed just to show some skills and good habits with Flutter, feel free to use or change as you want.
-> On this repository, I pushed the same app in two versions, using different state managers, being them GetX and Bloc.
+> An easy app to track your delivery packages.  
+>This project was developed just to show some skills and good habits with Flutter, feel free to use or change as you want.  
+> On this repository, I pushed the same app in two versions, using different state managers, being them GetX and Bloc.  
 > The first version was made using GetX, so I decided to know how hard is decouple this lib from an app, and using a nice pattern like clean architecture and SOLID concepts like dependency inversion, it was **really easy**!
 
 
 ## Review
 To this project, I used Clean Architecture and some unit tests following TDD for each layer.
 
-## Important
+## important worked topics
 
-No changes are needed to run this app, just clone and build using a Flutter nullsafety (2+).
+* Flutter
+* Clean Architecture
+* Unit Tests
+* SOLID
+* State management (Bloc and GetX)
+* HTTP Requests for a REST API
+* Dependency Injection (GetIt and the built-in dependency injection lib of GetX)
 
-
-## Release History
-
-* 1.0.0
-    * FEATURE: Add project using Correios API to get package track events
     
 ## Utils
 [Getx Repository](https://github.com/jonataslaw/getx)  
