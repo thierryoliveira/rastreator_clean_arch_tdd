@@ -77,7 +77,7 @@ class PackageTrackInfoScreen extends StatelessWidget {
                 onTap: () {
                   Clipboard.setData(ClipboardData(text: trackId));
                   showSuccessSnackbar(
-                      'Sucesso', 'Código copiado para àrea de transferência');
+                      'Código copiado para àrea de transferência');
                 },
                 child: Padding(
                   padding: EdgeInsets.only(left: size.width * .03),
@@ -95,8 +95,9 @@ class PackageTrackInfoScreen extends StatelessWidget {
           ),
           Expanded(
               child: RefreshIndicator(
-            onRefresh: () async =>
-                context.read<PackageBloc>().add(GetTrackInfoEvent(trackId)),
+            onRefresh: () async => context
+                .read<PackageBloc>()
+                .add(GetTrackInfoEvent(trackId, packageTitle)),
             child: Container(
                 padding: EdgeInsets.only(
                     left: size.width * .05, right: size.width * .05),
