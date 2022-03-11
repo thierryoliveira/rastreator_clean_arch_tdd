@@ -5,13 +5,16 @@
 # Rastreator
 > An easy app to track your delivery packages
 This project was developed just to show some skills and good habits with Flutter, feel free to use or change as you want.
+> On this repository, I pushed the same app in two versions, using different state managers, being them GetX and Bloc.
+> The first version was made using GetX, so I decided to know how hard is decouple this lib from an app, and using a nice pattern like clean architecture some SOLID concepts like dependency inversion, it was **really easy**!
+
 
 ## Review
 To this project, I used Clean Architecture and some unit tests following TDD for each layer.
 
 ## Important
 
-No changes are needed to run this app, just clone and build using a Flutter > 2 with nullsafety.
+No changes are needed to run this app, just clone and build using a Flutter nullsafety (2+).
 
 
 ## Release History
@@ -21,6 +24,8 @@ No changes are needed to run this app, just clone and build using a Flutter > 2 
     
 ## Utils
 [Getx Repository](https://github.com/jonataslaw/getx)  
+[Bloc lib](https://bloclibrary.dev/)
+[Clean Architecture and TDD playlist (en-US)](https://www.youtube.com/watch?v=KjE2IDphA_U&list=PLB6lc7nQ1n4iYGE_khpXRdJkJEp9WOech)
 [Clean Architecture and TDD playlist (PT-BR) ](https://www.youtube.com/watch?v=odr59ZAx-IU&list=PLnFA4SZ9y0T5FA2dFdNh6NLD6Rm6GB6x7)
  
 ## Send me a message:
