@@ -10,9 +10,9 @@
 
 
 ## Screenshots
-[HomePage](/screenshots/home.png)  
-[Add new package](/screenshots/dialog_add_package.png)  
-[Track info](/screenshots/track_info.png)  
+![HomePage](/screenshots/home.png)  
+![Add new package](/screenshots/dialog_add_package.png)  
+![Track info](/screenshots/track_info.png)  
 
 ## important worked topics
 
